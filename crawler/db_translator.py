@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 class Translator():
-    def __init__(self, db = 'postgresql://localhost/beetle_crawler_development', database_limit = 1000):
+    def __init__(self, db = 'postgresql://localhost/beetle_crawler_development', database_limit = 3000):
         database_engine = create_engine(db)
         self.connection = database_engine.connect()
         metadata = MetaData()

@@ -1,12 +1,13 @@
 import urllib.request
 import sys
+import os
 from bs4 import BeautifulSoup
-from crawler.db_translator import Translator
+from db_translator import Translator
 
 
 class Crawler():
     def __init__(self, translator = Translator()):
-        sys.setrecursionlimit(10000)
+        sys.setrecursionlimit(15000)
         self.translator = translator
 
     def crawl(self, url):
@@ -24,9 +25,9 @@ class Crawler():
         self.webpage_title = self.find_webpage_title(soup)
         self.webpage_description = self.find_webpage_metadata(soup, 'description')
         self.webpage_keywords = self.find_webpage_metadata(soup, 'keywords')
-        # print(self.webpage_title)
-        # print(self.webpage_description)
-        # print(self.webpage_keywords)
+        print(self.webpage_title)
+        print(self.webpage_description)
+        print(self.webpage_keywords)
         if self.empty_titles_and_descriptions(self.webpage_title, self.webpage_description):
             self.crawl_next_url()
         else:
@@ -44,7 +45,7 @@ class Crawler():
 
     def crawl_next_url(self):
         next_url_to_crawl = self.translator.get_next_url()
-        # print("NEXT URL TO CRAWL: ", next_url_to_crawl)
+        print("NEXT URL TO CRAWL: ", next_url_to_crawl)
         if self.translator.both_tables_are_not_full_yet():
             if next_url_to_crawl != None:
                 self.crawl(next_url_to_crawl)
@@ -60,6 +61,8 @@ class Crawler():
         except:
             return ''
 
+sites_to_crawl = "file://" + os.path.abspath("sites_to_crawl.html")
+# print(sites_to_crawl)
 
-# crawler = Crawler()
-# crawler.crawl("http://www.makersacademy.com")
+crawler = Crawler()
+crawler.crawl(sites_to_crawl)
