@@ -8,6 +8,6 @@ sys.setrecursionlimit(15499)
 
 sites_to_crawl = "file://" + os.path.abspath("sites_to_crawl.html")
 
-database_writer = DatabaseWriter('postgresql://localhost/beetle_crawler_development', 10000)
+database_writer = DatabaseWriter('postgresql://localhost/eureka_development', 10000)
 crawler = Crawler(database_writer)
 crawler.crawl(sites_to_crawl)
