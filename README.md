@@ -21,3 +21,9 @@ To crawl:
 - Open /initiate_crawl.py
 - Enter a website to begin crawling
 - Run ``` python3 initiate_crawl.py ```
+
+## Screenshot
+
+This screenshot shows part of the terminal output mid crawl:
+
+![alt text](/Screenshots/crawler.jpg?raw=true "Crawling")
