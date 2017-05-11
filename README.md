@@ -11,6 +11,9 @@ Team:
 
 ## Installation
 
+- If you don't already have Python 3 installed run ``` brew install python3 ```
+- To install dependencies, in the project root run ``` pip3 install -r requirements.txt ```
+
 To create your test and development databases and relevant tables:
 
 - Run ```./db-config.sh```
