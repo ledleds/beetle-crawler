@@ -25,6 +25,10 @@ To crawl:
 - Enter a website to begin crawling
 - Run ``` python3 initiate_crawl.py ```
 
+## Tests
+
+- To run the tests, in the root of the project run ``` python3 -m unittest discover -s test -p "*_tests.py" ```
+
 ## Screenshot
 
 This screenshot shows part of the terminal output mid crawl:
